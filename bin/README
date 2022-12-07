@@ -1,0 +1,75 @@
+Name:Xinya Chen
+Email:chen.xinya1@northeastern.edu
+Final Project: Animation
+
+This program consists of 3 main parts, including model, controller, and view. 
+
+1.Model:
+	Model has 3 main parts, including Shape, Animation, and ModelImplementation.
+	
+	I. Shape:
+		shape objects has several fields. 
+			* name
+				- the name of this shape object
+			* position
+				-Point2D class to store the x axis and y axis of the position
+		    * dimension
+		    	-x radius or width
+		    	-y radius or height
+		    * color
+		    	-Color class to store the components of color: red, green, and blue
+		    * time
+		    	-Time class to store the start time and end time of displaying
+			* animationList: a list to store animations of this shape object
+			
+		It has an interface called "Shape", which lists out getter methods.
+		It has an abstract class called "ShapeAbstract", which abstracts the common codes for
+		Rectangle and Oval concrete classes. 
+		Each concrete classes has getType() and toString() methods.
+		
+	II. Animation:
+		We have 3 animation types so far. Enum class called "AnimationType" is created to predefined
+		this 3 constants: ChangeColor, Move, and Scale.
+		It has an interface called "AnimationInterface", which lists out getter methods.
+		It has an abstract class called "AnimationAbstraction", which abstracts the common codes
+		for ChangeColor, Move, and Scale concrete classes. 
+		
+		The AnimationAbstract constructor takes in the following arguments:
+			* shape object that is going to animate 
+			* time 
+				- the start time and end time of animation
+			* animation type
+			
+		Each concrete class constructor will also take in appropriate changes-parameters:
+			ChangeColor class: old and new color.
+			Move: old and new position.
+			Scale: old and new width/xRadius and height/yRadius
+			
+		Every time a new Animation object is created, it will be checked if it can be added to the shape
+		object's animationList. It can be added if there is no overlapped time for the same animation type.
+		
+		Each concrete class has getter methods to get the new information of changes,
+		and toString method. 
+		
+	III. ModeImplementation
+	
+		ModelImplementation has 2 fields:
+			1. shapeList
+				- a list of shape objects that are going to animate.
+			2. all_shape_animation_list
+				- a list of all shapes' animations combined together, and then sort those animations
+				  based on the times. At the end, we will loop this list, and each animation is performed.
+		ModelInterface is an interface that lists out getter methods.
+
+//Document any further changes made to your models from the previous assignment: explain what was added, removed or changed (besides the package declaration), and why.
+//GET LIST- CLONE!!!
+
+
+2. Controller
+3. View
+	There are 4 main views.
+	1. text based view
+	2. visual view
+	3. SVg text view
+
+		 
