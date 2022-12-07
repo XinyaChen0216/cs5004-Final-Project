@@ -1,4 +1,4 @@
-package cs5004.animator.model;
+package model;
 
 /**
  * This represents Scale class, which extends from AnimationAbstration class. 

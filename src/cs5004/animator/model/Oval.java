@@ -1,4 +1,4 @@
-package cs5004.animator.model;
+package model;
 
 /**
  * This represents a Oval class, which extends from ShapeAbstract.

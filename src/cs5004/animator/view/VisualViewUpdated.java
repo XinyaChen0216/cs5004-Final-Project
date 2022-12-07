@@ -1,7 +1,7 @@
-package cs5004.animator.view;
+package view;
 
-import cs5004.animator.model.ModelInterface;
-import cs5004.animator.model.Shape;
+import model.ModelInterface;
+import model.Shape;
 
 import java.awt.Color;
 import java.awt.Component;

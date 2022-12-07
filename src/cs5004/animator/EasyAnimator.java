@@ -1,33 +1,25 @@
-package cs5004.animator;
 
-import cs5004.animator.controller.AnimationController;
-import cs5004.animator.model.ModelImplementation;
-import cs5004.animator.model.ModelInterface;
-import cs5004.animator.util.AnimationBuilder;
-import cs5004.animator.util.AnimationReader;
-import cs5004.animator.view.SVGView;
-import cs5004.animator.view.TextBasedView;
-import cs5004.animator.view.ViewInterface;
-import cs5004.animator.view.VisualView;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-/**
- * This represents a easy animator class.
- * @author xinyachen
- *
- */
+import controller.AnimationController;
+import model.ModelImplementation;
+import model.ModelInterface;
+import util.AnimationBuilder;
+import util.AnimationReader;
+import view.SVGView;
+import view.TextBasedView;
+import view.ViewInterface;
+import view.VisualView;
+
 public final class EasyAnimator {
 
-  /**
-   * This is the main function of the program, and it takes an array of String as arguments. 
-   * @param args an array of String
-   */
   public static void main(String[] args) {
 
     ModelInterface model = null;
@@ -51,7 +43,6 @@ public final class EasyAnimator {
           try {
             InputStream inputStream = new FileInputStream(args[i + 1]);
             AnimationBuilder<ModelInterface> builder = new ModelImplementation.Builder();
-            builder.build();
             model = AnimationReader.parseFile(new InputStreamReader(inputStream), builder);
           } catch (FileNotFoundException e) {
             JOptionPane.showMessageDialog(frame, "Input file is not found!", "Error",
@@ -91,7 +82,6 @@ public final class EasyAnimator {
     } else if (viewType.equals("svg")) {
       view = new SVGView(viewType, tempo);
     }
-
     new AnimationController(model, view).run();
   }
 }

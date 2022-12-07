@@ -1,4 +1,4 @@
-package cs5004.animator.model;
+package model;
 
 /**
  * This represents ChangeColor class, which extends from AnimationAbstration class. 

@@ -1,4 +1,4 @@
-package cs5004.animator.model;
+package model;
 
 /**
  * This represents a Color class, which consists of three fields. They
@@ -22,10 +22,10 @@ public class Color {
    *         when the total percentage is not added up to 1.
    */
   public Color(double red, double green, double blue) throws IllegalArgumentException {
-    if (red < 0 || red > 1.0 || green < 0 || green > 1.0 || blue < 0 || blue > 1.0) {
-      throw new IllegalArgumentException("Invalid value(s). "
-          + "Each value should be in the range of [0,1].");
-    }
+    // if (red < 0 || red > 1.0 || green < 0 || green > 1.0 || blue < 0 || blue > 1.0) {
+    //   throw new IllegalArgumentException("Invalid value(s). "
+    //       + "Each value should be in the range of [0,1].");
+    // }
     
     this.red = red;
     this.green = green;

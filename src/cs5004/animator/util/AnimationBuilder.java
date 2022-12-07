@@ -1,4 +1,4 @@
-package cs5004.animator.util;
+package util;
 
 public interface AnimationBuilder<Doc> {
   /**

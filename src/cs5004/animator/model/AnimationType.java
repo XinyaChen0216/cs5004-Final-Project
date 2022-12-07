@@ -1,4 +1,4 @@
-package cs5004.animator.model;
+package model;
 
 /**
  * This enum represents three ways of animation that can be applied to a shape.

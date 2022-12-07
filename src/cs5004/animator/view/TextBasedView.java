@@ -1,7 +1,7 @@
-package cs5004.animator.view;
+package view;
 
-import cs5004.animator.model.AnimationInterface;
-import cs5004.animator.model.Shape;
+import model.AnimationInterface;
+import model.Shape;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -17,12 +17,6 @@ public class TextBasedView implements ViewInterface {
   private String viewType;
   private int tempo;
   
-  /**
-   * A constructor that takes in viewType and tempo as parameters to create a 
-   * text based view object. 
-   * @param viewType the type of this view
-   * @param tempo the speed of diaplaying the view
-   */
   public TextBasedView(String viewType, int tempo) {
     this.viewType = viewType;
     this.tempo = tempo;

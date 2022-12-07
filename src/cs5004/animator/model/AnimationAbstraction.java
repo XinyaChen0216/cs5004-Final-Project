@@ -1,4 +1,4 @@
-package cs5004.animator.model;
+package model;
 
 import java.util.List;
 
@@ -31,11 +31,11 @@ public abstract class AnimationAbstraction implements AnimationInterface {
     this.time = new Time(startTime, endTime);
     this.shape = shape;
     this.type = type;
-    if (this.time.getEndTime() < this.shape.getTime().getStartTime()
-        || this.time.getStartTime() > this.shape.getTime().getEndTime()) {
-      throw new IllegalArgumentException("Shape cannot be animated before "
-          + "it appears or after it disappears.");
-    }
+    // if (this.time.getEndTime() < this.shape.getTime().getStartTime()
+    //     || this.time.getStartTime() > this.shape.getTime().getEndTime()) {
+    //   throw new IllegalArgumentException("Shape cannot be animated before "
+    //       + "it appears or after it disappears.");
+    // }
      
     int list_size = this.shape.getAnimationList().size();
     if (list_size == 0) {

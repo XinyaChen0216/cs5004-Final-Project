@@ -1,8 +1,10 @@
-package cs5004.animator.view;
-
-import cs5004.animator.model.Shape;
+package view;
 
 import java.util.List;
+
+import model.AnimationInterface;
+import model.ModelInterface;
+import model.Shape;
 
 /**
  * This represents a view interface.
@@ -11,11 +13,6 @@ import java.util.List;
  */
 public interface ViewInterface {
 
-  /**
-   * To display view to users.
-   * @param shapeList the list of shape
-   * @return the view to users
-   */
   String displayView(List<Shape> shapeList);
 
   /**

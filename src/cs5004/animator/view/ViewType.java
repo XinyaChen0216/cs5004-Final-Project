@@ -1,4 +1,4 @@
-package cs5004.animator.view;
+package view;
 
 /**
  * A enum class that represents the view type of animation.

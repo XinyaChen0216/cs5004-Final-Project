@@ -1,15 +1,15 @@
-package cs5004.animator.view;
+package view;
 
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import cs5004.animator.model.AnimationInterface;
-import cs5004.animator.model.AnimationType;
-import cs5004.animator.model.ChangeColor;
-import cs5004.animator.model.Move;
-import cs5004.animator.model.Scale;
-import cs5004.animator.model.Shape;
+import model.AnimationInterface;
+import model.AnimationType;
+import model.ChangeColor;
+import model.Move;
+import model.Scale;
+import model.Shape;
 
 /**
  * This represents a SVG view, which implements ViewInterface.
@@ -21,12 +21,6 @@ public class SVGView implements ViewInterface {
   private String viewType;
   private int tempo;
   
-  /**
-   * A constructor that takes viewType and tempo as parameters to 
-   * create SVG view object.
-   * @param viewType the type of this view
-   * @param tempo the speed of displaying the view
-   */
   public SVGView(String viewType, int tempo) {
     this.viewType = viewType;
     this.tempo = tempo;
