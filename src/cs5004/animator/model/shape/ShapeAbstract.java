@@ -90,10 +90,10 @@ public abstract class ShapeAbstract implements Shape {
   public List<AnimationInterface> getAnimationList() {
     return this.animationList;
   }
-  
 
   /**
    * Common code for the generateAnimatedShape methods.
+   * 
    * @param currTime the current time
    */
   public void animatedUpdate(double currTime) {
@@ -110,13 +110,26 @@ public abstract class ShapeAbstract implements Shape {
         if (a.getAnimationTime().getStartTime() == b.getAnimationTime().getStartTime()) {
           return a.getAnimationTime().getEndTime() - b.getAnimationTime().getEndTime();
         } else {
-          return a.getAnimationTime().getStartTime() - b.getAnimationTime().getStartTime();
+          return a.getAnimationTime().getStartTime() -
+              b.getAnimationTime().getStartTime();
         }
       }
     });
     for (int i = 0; i < animationList.size(); i++) {
       AnimationInterface animation = animationList.get(i);
-      if (animation.getAnimationTime().getStartTime() <= currTime
+      if (animation.getAnimationTime().getEndTime() < currTime) {
+        if (animation.getType() == AnimationType.Move) {
+          updatedX = ((Move) animation).getNewPosition().getX();
+          updatedY = ((Move) animation).getNewPosition().getY();
+        } else if (animation.getType() == AnimationType.ChangeColor) {
+          updatedRed = ((ChangeColor) animation).getNewColor().getRed();
+          updatedGreen = ((ChangeColor) animation).getNewColor().getGreen();
+          updatedBlue = ((ChangeColor) animation).getNewColor().getBlue();
+        } else if (animation.getType() == AnimationType.Scale) {
+          updatedWidth = ((Scale) animation).getNewWidth();
+          updatedHeight = ((Scale) animation).getNewHeight();
+        }
+      } else if (animation.getAnimationTime().getStartTime() <= currTime
           && animation.getAnimationTime().getEndTime() >= currTime) {
         if (animation.getType() == AnimationType.Move) {
           updatedX = (((Move) animation).getOldPosition().getX()
@@ -132,8 +145,6 @@ public abstract class ShapeAbstract implements Shape {
                   * (currTime - animation.getAnimationTime().getStartTime()))
               / (animation.getAnimationTime().getEndTime()
                   - animation.getAnimationTime().getStartTime());
-          //System.out.println(updatedX);
-          //System.out.println(updatedY);
         } else if (animation.getType() == AnimationType.ChangeColor) {
           updatedRed = (((ChangeColor) animation).getOldColor().getRed()
               * (animation.getAnimationTime().getEndTime() - currTime)
