@@ -29,7 +29,6 @@ public class VisualView extends JFrame implements ViewInterface {
   public String displayView(List<Shape> shapeList) {
     this.viewPanel.displayView(shapeList);
     return "";
-
   }
 
   @Override
