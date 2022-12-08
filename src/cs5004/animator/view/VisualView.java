@@ -21,7 +21,6 @@ public class VisualView extends JFrame implements ViewInterface {
     viewPanel = new ViewPanel(tempo);
     this.add(viewPanel);
     this.pack();
-    this.setLocationRelativeTo(null);
     this.setVisible(true);
   }
 
@@ -31,9 +30,9 @@ public class VisualView extends JFrame implements ViewInterface {
     return "";
   }
 
-  @Override
-  public String getViewType() {
-    return "visual";
-  }
+  // @Override
+  // public String getViewType() {
+  //   return "visual";
+  // }
 
 }

@@ -32,6 +32,10 @@ public class ModelImplementation implements ModelInterface {
   private List<AnimationInterface> all_shape_animation_list;
   private HashMap<String, String> shapeMap;
   private HashSet<String> set;
+  private int x;
+  private int y;
+  private int width;
+  private int height;
 
   /**
    * A constructor that takes a list of shapes as arguments to create
@@ -42,6 +46,22 @@ public class ModelImplementation implements ModelInterface {
     all_shape_animation_list = new ArrayList<>();
     shapeMap = new HashMap<>();
     set = new HashSet<>();
+  }
+
+  public int getX() {
+    return this.x;
+  }
+
+  public int getY() {
+    return this.y;
+  }
+
+  public int getWidth() {
+    return this.width;
+  }
+
+  public int getHeight() {
+    return this.height;
   }
 
   public List<Shape> getShapeList() {
@@ -58,7 +78,7 @@ public class ModelImplementation implements ModelInterface {
    */
   public void addShape(Shape shape) {
     // if (!this.set.contains(shape.getName())) {
-      this.shapeList.add(shape);
+    this.shapeList.add(shape);
     // }
   }
 
@@ -86,42 +106,36 @@ public class ModelImplementation implements ModelInterface {
     this.set.add(name);
   }
 
-  //  /**
-  //   * Get a String description of ModelImplementation.
-  //   */
-  //  @Override
-  //  public String toString() {
-  //    String s = "";
+  // /**
+  // * Get a String description of ModelImplementation.
+  // */
+  // @Override
+  // public String toString() {
+  // String s = "";
   //
-  //    s += "Shape:\n";
+  // s += "Shape:\n";
   //
-  //    for (int i = 0; i < this.shapeList.size(); i++) {
-  //      s += this.shapeList.get(i).toString();
-  //      if (i != this.shapeList.size()) {
-  //        s += "\n";
-  //        s += "\n";
-  //      }
-  //    }
+  // for (int i = 0; i < this.shapeList.size(); i++) {
+  // s += this.shapeList.get(i).toString();
+  // if (i != this.shapeList.size()) {
+  // s += "\n";
+  // s += "\n";
+  // }
+  // }
   //
-  //    int all_shape_animation_list_size = this.all_shape_animation_list.size();
-  //    for (int i = 0; i < all_shape_animation_list_size; i++) {
-  //      s += this.all_shape_animation_list.get(i).toString();
-  //      if (i != all_shape_animation_list_size - 1) {
-  //        s += "\n";
-  //      }
-  //    }
-  //    return s;
-  //  }
-
+  // int all_shape_animation_list_size = this.all_shape_animation_list.size();
+  // for (int i = 0; i < all_shape_animation_list_size; i++) {
+  // s += this.all_shape_animation_list.get(i).toString();
+  // if (i != all_shape_animation_list_size - 1) {
+  // s += "\n";
+  // }
+  // }
+  // return s;
+  // }
 
   public static final class Builder implements AnimationBuilder<ModelInterface> {
 
     ModelImplementation model = new ModelImplementation();
-    int x;
-    int y;
-    int width;
-    int height;
-    int endTime = 0;
 
     @Override
     public ModelInterface build() {
@@ -130,10 +144,10 @@ public class ModelImplementation implements ModelInterface {
 
     @Override
     public AnimationBuilder<ModelInterface> setBounds(int x, int y, int width, int height) {
-      this.x = x;
-      this.y = y;
-      this.width = width;
-      this.height = height;
+      this.model.x = x;
+      this.model.y = y;
+      this.model.width = width;
+      this.model.height = height;
       return this;
     }
 
@@ -149,7 +163,6 @@ public class ModelImplementation implements ModelInterface {
     public AnimationBuilder<ModelInterface> addMotion(String name, int t1, int x1, int y1, int w1,
         int h1, int r1, int g1, int b1, int t2, int x2, int y2, int w2, int h2, int r2, int g2,
         int b2) {
-      endTime = Math.max(endTime, t2);
       if (!this.model.set.contains(name)) {
         if (this.model.shapeMap.get(name).equals("rectangle")) {
           Shape currRec = new Rectangle(name, x1, y1, w1, h1, r1, g1, b1, t1, t2);
@@ -173,7 +186,7 @@ public class ModelImplementation implements ModelInterface {
           new Scale(currShape, t1, t2, AnimationType.Scale, w1, h1, w2, h2);
         }
         if (r1 != r2 || g1 != g2 || b1 != b2) {
-          new ChangeColor(currShape, t1, t2, AnimationType.ChangeColor, 
+          new ChangeColor(currShape, t1, t2, AnimationType.ChangeColor,
               new Color(r1, g1, b1), new Color(r2, g2, b2));
         }
       }

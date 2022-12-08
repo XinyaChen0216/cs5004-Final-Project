@@ -25,10 +25,13 @@ public class AnimationController implements AnimationControllerInterface {
 
   @Override
   public void run() {
+    
    try {
     this.appendable.append(this.view.displayView(this.model.getShapeList()));
-    ((FileWriter)this.appendable).flush();
-    ((FileWriter)this.appendable).close();
+    if (this.appendable != System.out) {
+      ((FileWriter)this.appendable).flush();
+      ((FileWriter)this.appendable).close();
+    }
   } catch (IOException e) {
     e.printStackTrace();
   }

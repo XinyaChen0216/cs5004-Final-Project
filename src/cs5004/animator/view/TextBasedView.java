@@ -14,10 +14,8 @@ import java.util.List;
  *
  */
 public class TextBasedView implements ViewInterface {
-  private int tempo;
   
-  public TextBasedView(int tempo) {
-    this.tempo = tempo;
+  public TextBasedView() {
   }
 
   @Override
@@ -73,8 +71,8 @@ public class TextBasedView implements ViewInterface {
     return s;
   }
 
-  @Override
-  public String getViewType() {
-    return "text";
-  }
+  // @Override
+  // public String getViewType() {
+  //   return "text";
+  // }
 }

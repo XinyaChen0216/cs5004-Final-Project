@@ -1,5 +1,6 @@
-<svg width="800" height="800" version="1.1"
+<svg version="1.1"
 xmlns="http://www.w3.org/2000/svg">
+<svg x="0" y="0" width="800" height="800" >
 <rect id="background" x="0.0" y="0.0" width="800.0" height="800.0" fill="rgb(33.0,94.0,248.0)" visibility="visible" >
 <animate attributeType="xml" begin="50000ms" dur="40000ms" attributeName="fill" from="rgb(8415.0,23970.0,63240.0)" to="rgb(4080.0,11475.0,63240.0)" fill="freeze" />
 </rect>
@@ -304,4 +305,5 @@ xmlns="http://www.w3.org/2000/svg">
 </ellipse>
 <ellipse id="star39" cx="462.0" cy="162.0" rx="6.0" ry="6.0" fill="rgb(255.0,255.0,255.0)" visibility="visible" >
 </ellipse>
+</svg>
 </svg>

@@ -12,8 +12,8 @@ import model.shape.Shape;
 
 public class ViewPanel extends JPanel implements ActionListener {
 
-  final int PANEL_WIDTH = 1200;
-  final int PANEL_HEIGHT = 1200;
+  final int PANEL_WIDTH = 600;
+  final int PANEL_HEIGHT = 400;
   private double currTime;
   private int tick;
   private List<Shape> shapeList;
@@ -36,8 +36,10 @@ public class ViewPanel extends JPanel implements ActionListener {
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
     Graphics2D g2D = (Graphics2D) g;
+    
     for (int i = 0; i < this.shapeList.size(); i++) {
       Shape shape = this.shapeList.get(i);
+      
       // if (shape.getTime().getEndTime() < currTime || shape.getTime().getStartTime()
       // > currTime) {
       // continue;
@@ -59,7 +61,6 @@ public class ViewPanel extends JPanel implements ActionListener {
             (int) shape.getXRadius(), (int) shape.getYRadius());
       }
     }
-    // }
     this.currTime += this.tick;
   }
 

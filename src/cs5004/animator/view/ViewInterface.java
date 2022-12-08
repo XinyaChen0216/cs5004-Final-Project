@@ -15,9 +15,9 @@ public interface ViewInterface {
 
   String displayView(List<Shape> shapeList);
 
-  /**
-   * Get the view type.
-   * @return the view type
-   */
-  String getViewType();
+  // /**
+  //  * Get the view type.
+  //  * @return the view type
+  //  */
+  // String getViewType();
 }

@@ -181,6 +181,11 @@ public abstract class ShapeAbstract implements Shape {
         }
       }
     }
+    System.out.println(currTime);
+    System.out.println(this.name);
+    System.out.println(updatedX);
+    System.out.println(updatedY);
+    System.out.println();
     this.center = new Point2D(updatedX, updatedY);
     this.xRadius = updatedWidth;
     this.yRadius = updatedHeight;
