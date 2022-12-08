@@ -1,7 +1,7 @@
 package view;
 
-import model.AnimationInterface;
-import model.Shape;
+import model.animation.AnimationInterface;
+import model.shape.Shape;
 
 import java.util.ArrayList;
 import java.util.Collections;

@@ -3,9 +3,21 @@ package model;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import model.animation.AnimationInterface;
+import model.animation.AnimationType;
+import model.animation.ChangeColor;
+import model.animation.Move;
+import model.animation.Scale;
+import model.shape.Oval;
+import model.shape.Rectangle;
+import model.shape.Shape;
+
 import java.util.HashSet;
 
 import util.AnimationBuilder;
+import util.Color;
+import util.Point2D;
 
 /**
  * This represents a ModelImplementation class, which implements ModelInterface

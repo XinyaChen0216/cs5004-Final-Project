@@ -1,4 +1,4 @@
-package model;
+package util;
 
 /**
  * This represents a Color class, which consists of three fields. They

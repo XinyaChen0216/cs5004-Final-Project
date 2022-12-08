@@ -1,5 +1,3 @@
-
-
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
@@ -25,7 +23,6 @@ public final class EasyAnimator {
     ModelInterface model = null;
 
     JFrame frame = new JFrame();
-    frame.setSize(100, 100);
 
     String viewType = "";
     String outputFile = "";
@@ -78,7 +75,7 @@ public final class EasyAnimator {
     if (viewType.equals("text")) {
       view = new TextBasedView(viewType, tempo);
     } else if (viewType.equals("visual")) {
-      view = new VisualView(viewType, tempo);
+      view = new VisualView(tempo);
     } else if (viewType.equals("svg")) {
       view = new SVGView(viewType, tempo);
     }

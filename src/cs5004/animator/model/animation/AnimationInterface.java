@@ -1,4 +1,6 @@
-package model;
+package model.animation;
+
+import util.Time;
 
 /**
  * This represents a Animation interface, which has three methods. 

@@ -1,4 +1,7 @@
-package model;
+package model.animation;
+
+import model.shape.Shape;
+import util.Point2D;
 
 /**
  * This represents a Move class, which extends from AnimationAbstraction.

@@ -1,4 +1,4 @@
-package model;
+package model.shape;
 
 /**
  * This represents a Oval class, which extends from ShapeAbstract.

@@ -2,6 +2,9 @@ package model;
 
 import java.util.List;
 
+import model.animation.AnimationInterface;
+import model.shape.Shape;
+
 /**
  * This represents a model interface.
  * @author xinyachen

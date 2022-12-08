@@ -1,6 +1,11 @@
-package model;
+package model.animation;
 
 import java.util.List;
+
+import model.shape.Shape;
+import util.Color;
+import util.Point2D;
+import util.Time;
 
 /**
  * This represents an abstract Animation class. 

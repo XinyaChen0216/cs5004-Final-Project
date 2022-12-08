@@ -1,7 +1,7 @@
 package view;
 
 import model.ModelInterface;
-import model.Shape;
+import model.shape.Shape;
 
 import java.awt.Color;
 import java.awt.Component;

@@ -4,12 +4,12 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import model.AnimationInterface;
-import model.AnimationType;
-import model.ChangeColor;
-import model.Move;
-import model.Scale;
-import model.Shape;
+import model.animation.AnimationInterface;
+import model.animation.AnimationType;
+import model.animation.ChangeColor;
+import model.animation.Move;
+import model.animation.Scale;
+import model.shape.Shape;
 
 /**
  * This represents a SVG view, which implements ViewInterface.

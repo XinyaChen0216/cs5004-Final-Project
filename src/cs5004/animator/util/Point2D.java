@@ -1,4 +1,4 @@
-package model;
+package util;
 
 /**
  * This class represents a 2D point. This point is denoted in 

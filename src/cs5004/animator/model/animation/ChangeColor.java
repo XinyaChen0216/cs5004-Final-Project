@@ -1,4 +1,7 @@
-package model;
+package model.animation;
+
+import model.shape.Shape;
+import util.Color;
 
 /**
  * This represents ChangeColor class, which extends from AnimationAbstration class. 

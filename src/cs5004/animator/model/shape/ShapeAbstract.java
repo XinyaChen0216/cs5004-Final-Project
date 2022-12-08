@@ -1,9 +1,18 @@
-package model;
+package model.shape;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+
+import model.animation.AnimationInterface;
+import model.animation.AnimationType;
+import model.animation.ChangeColor;
+import model.animation.Move;
+import model.animation.Scale;
+import util.Color;
+import util.Point2D;
+import util.Time;
 
 /**
  * This represents a shape abstract class, which implements Shape interface.

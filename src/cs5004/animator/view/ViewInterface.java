@@ -2,9 +2,9 @@ package view;
 
 import java.util.List;
 
-import model.AnimationInterface;
 import model.ModelInterface;
-import model.Shape;
+import model.animation.AnimationInterface;
+import model.shape.Shape;
 
 /**
  * This represents a view interface.

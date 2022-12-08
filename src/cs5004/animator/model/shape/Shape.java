@@ -1,6 +1,11 @@
-package model;
+package model.shape;
 
 import java.util.List;
+
+import model.animation.AnimationInterface;
+import util.Color;
+import util.Point2D;
+import util.Time;
 
 /**
  * This represents a Shape interface.

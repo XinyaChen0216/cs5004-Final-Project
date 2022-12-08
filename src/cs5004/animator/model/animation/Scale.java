@@ -1,4 +1,6 @@
-package model;
+package model.animation;
+
+import model.shape.Shape;
 
 /**
  * This represents Scale class, which extends from AnimationAbstration class. 

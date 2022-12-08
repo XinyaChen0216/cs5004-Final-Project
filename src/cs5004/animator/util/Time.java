@@ -1,4 +1,4 @@
-package model;
+package util;
 
 /**
  * This represents a Time class, which consists of two field. They are startTime,
