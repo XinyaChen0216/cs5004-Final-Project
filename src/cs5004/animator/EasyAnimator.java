@@ -15,7 +15,7 @@ import util.AnimationReader;
 import view.SVGView;
 import view.TextBasedView;
 import view.ViewInterface;
-// import view.VisualButton;
+import view.VisualButton;
 import view.VisualView;
 
 public final class EasyAnimator {
@@ -81,7 +81,7 @@ public final class EasyAnimator {
     } else if (viewType.equals("svg")) {
       view = new SVGView(model.getX(), model.getY(), model.getWidth(), model.getHeight());
     } else if(viewType.equals("visualButton")){
-      // view = new VisualButton(tempo);
+      view = new VisualButton(tempo);
     }
     new AnimationController(model, view, appendable).run();
   }

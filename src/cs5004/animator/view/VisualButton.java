@@ -98,8 +98,8 @@ public class VisualButton extends JFrame implements ViewInterface, ActionListene
 @Override
 public void actionPerformed(ActionEvent e) {
    Component c = (Component) e.getSource();
-   if(c.getName().equals("start")){
-    
+   if(c.getName().equals("Quit")){
+    System.exit(0);
    }
 
     
