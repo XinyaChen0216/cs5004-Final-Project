@@ -1,5 +1,6 @@
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
@@ -21,7 +22,7 @@ public final class EasyAnimator {
   public static void main(String[] args) {
 
     ModelInterface model = null;
-
+    Appendable appendable = System.out;
     JFrame frame = new JFrame();
 
     String viewType = "";
@@ -36,7 +37,6 @@ public final class EasyAnimator {
     } else {
       for (int i = 0; i < size; i++) {
         if (args[i].equals("-in")) {
-
           try {
             InputStream inputStream = new FileInputStream(args[i + 1]);
             AnimationBuilder<ModelInterface> builder = new ModelImplementation.Builder();
@@ -46,14 +46,15 @@ public final class EasyAnimator {
                 JOptionPane.ERROR_MESSAGE);
           }
         } else if (args[i].equals("-out")) {
-          try {
-            outputFile = args[i + 1];
-            // appendable = new FileWriter(outputFile);
-            // appendable = System.out;
-          } catch (Exception e) {
-            JOptionPane.showMessageDialog(frame, "Output source is not found!", "Error",
-                JOptionPane.WARNING_MESSAGE);
-          }
+            if(args[i+1].endsWith("txt") || args[i+1].endsWith("svg")){
+              try{
+                outputFile = args[i + 1];
+                appendable = new FileWriter(outputFile);
+              } catch (Exception e) {
+                  JOptionPane.showMessageDialog(frame, "Output source is not found!", "Error",
+                  JOptionPane.WARNING_MESSAGE);
+              }
+            } 
         } else if (args[i].equals("-view")) {
           try {
             viewType = args[i + 1];
@@ -73,12 +74,13 @@ public final class EasyAnimator {
     }
 
     if (viewType.equals("text")) {
-      view = new TextBasedView(viewType, tempo);
+      view = new TextBasedView(tempo);
     } else if (viewType.equals("visual")) {
       view = new VisualView(tempo);
     } else if (viewType.equals("svg")) {
-      view = new SVGView(viewType, tempo);
+      view = new SVGView();
     }
-    new AnimationController(model, view).run();
+    new AnimationController(model, view, appendable).run();
+    
   }
 }

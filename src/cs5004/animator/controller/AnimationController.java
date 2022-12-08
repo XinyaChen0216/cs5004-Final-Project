@@ -1,5 +1,8 @@
 package controller;
 
+import java.io.IOException;
+import java.io.FileWriter;
+
 import model.ModelInterface;
 import view.ViewInterface;
 
@@ -12,15 +15,22 @@ public class AnimationController implements AnimationControllerInterface {
 
   private ModelInterface model;
   private ViewInterface view;
+  private Appendable appendable;
   
-  public AnimationController(ModelInterface model, ViewInterface view) {
+  public AnimationController(ModelInterface model, ViewInterface view, Appendable appendable) {
     this.model = model;
     this.view = view;
+    this.appendable = appendable;
   }
 
   @Override
   public void run() {
-   
-   this.view.displayView(this.model.getShapeList());
+   try {
+    this.appendable.append(this.view.displayView(this.model.getShapeList()));
+    ((FileWriter)this.appendable).flush();
+    ((FileWriter)this.appendable).close();
+  } catch (IOException e) {
+    e.printStackTrace();
+  }
   }
 }

@@ -14,11 +14,9 @@ import java.util.List;
  *
  */
 public class TextBasedView implements ViewInterface {
-  private String viewType;
   private int tempo;
   
-  public TextBasedView(String viewType, int tempo) {
-    this.viewType = viewType;
+  public TextBasedView(int tempo) {
     this.tempo = tempo;
   }
 

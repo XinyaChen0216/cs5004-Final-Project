@@ -18,18 +18,13 @@ import model.shape.Shape;
  */
 public class SVGView implements ViewInterface {
   
-  private String viewType;
-  private int tempo;
-  
-  public SVGView(String viewType, int tempo) {
-    this.viewType = viewType;
-    this.tempo = tempo;
+  public SVGView() {
   }
 
   @Override
   public String displayView(List<Shape> shapeList) {
     String svg = "";
-    svg += "<svg width=\"700\" height=\"500\" version=\"1.1\"\n"
+    svg += "<svg width=\"800\" height=\"800\" version=\"1.1\"\n"
         + "xmlns=\"http://www.w3.org/2000/svg\">\n";
     //List<Shape> shapeList = model.getShapeList();
     int size =  shapeList.size();

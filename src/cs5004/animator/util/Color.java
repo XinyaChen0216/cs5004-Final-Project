@@ -18,14 +18,13 @@ public class Color {
    * @param red the percentage of red in color
    * @param green the percentage of green in color
    * @param blue the percentage of blue in color
-   * @throws IllegalArgumentException when the percentage is not within the range of [0.0,1.0], or 
-   *         when the total percentage is not added up to 1.
+   * @throws IllegalArgumentException when the color value is not within the [0,255]
    */
   public Color(double red, double green, double blue) throws IllegalArgumentException {
-    // if (red < 0 || red > 1.0 || green < 0 || green > 1.0 || blue < 0 || blue > 1.0) {
-    //   throw new IllegalArgumentException("Invalid value(s). "
-    //       + "Each value should be in the range of [0,1].");
-    // }
+    if (red < 0 || red > 255 || green < 0 || green > 255 || blue < 0 || blue > 255) {
+      throw new IllegalArgumentException("Invalid value(s). "
+          + "Each value should be in the range of [0,1].");
+    }
     
     this.red = red;
     this.green = green;
