@@ -62,42 +62,33 @@ This program consists of 3 main parts, including model, controller, and view.
 		ModelInterface is an interface that lists out getter methods.
 
 Changes that are made after the part1 submission:
-1. Method "generatedAnimatedShape" is added in the shape interface. The purpose is to update the shape 
-   status based on the time and the speed that users input. 
+1. Method "generatedAnimatedShape" is added in the shape interface. The purpose is to update the shape status based on the time and the speed that users input. 
 
 
+
+//GET LIST- CLONE!!!
 
 
 2. Controller
-	Controller takes in model, view and Appendable as parameters. 
+	Controller takes in model, view and Appendable as parameters. (This design needs to be improved in the future.)
 	Controller has only one method, and when it gets called, the view will display the output to the users. 
 3. View
 	There are 4 main views.
 	1. text based view
 		The shape and motion information will be shown in text here. 
 	2. visual view
-		Visual view class extends from JFrame. And the JPanel is added into this JFrame to display shapes and motions. 
-		When the controller calls the displayView method, the timer starts. And then the JPanel calls its paintComponent 
-		method to update shapes and motions as time goes by. 
-		Inside the paintComponent method, there is a method called generatedAnimatedShape. What it does is to calculate 
-		what kinds of status the shape is at certain time.
+		Visual view class extends from JFrame. And the JPanel is added into this JFrame to display shapes and motions. When the controller calls the displayView method, the timer starts. And then the JPanel calls its paintComponent method to update shapes and motions as time goes by. 
+		Inside the paintComponent method, there is a method called generatedAnimatedShape. What it does is to calculate what kinds of status the shape is at certain time.
 	3. SVg text view
-		It will produce a textual description of the animation that is compliant with the SVG file format. 
-		The output of the program will be saved in a .svg file, and can be directly viewed in a web browser. 
+		It will produce a textual description of the animation that is compliant with the SVG file format. The output of the program will be saved in a .svg file, and can be directly viewed in a web browser. 
 
 4. Main method
 	The main method of the program takes user input as parameters, and the input is in the form of array of String. 
 	The input is then broken down into different parts:
 		-in: takes the name of the animation file.
-		-view: takes the type of view to display; valid view input are text, visual, and svg.
-		-out: takes where the output should show go. This input is optional. If the users do not write down this argument, 
-		      the default is standard.out, which is going to display the output in the console.
-		-speed: takes the integer-ticks-per-second. The bigger value, the faster the view will be displayed. 
-			    This input is also optional. The default value is 1.
-	The input will be checked if they are valid. The invalid input will trigger and popup the error message, 
-	which is implemented by JOptionPane. 
+		-view: takes the type of view to display; valide view input are 	   text, visual, and svg.
+		-out: takes where the output should show go. This input is 			  optional. If the users do not write down this argument, the 		default is standard.out, which is going to display the 			  output in the console.
+		-speed: takes the integer-ticks-per-second. The bigger value, the 		  faster the view will be displayed. This input is also 			opitonal. The default value is 1.
+	The input will be checked if they are valid. The invalid input will trigger and popup the error message, which is implemented by JOptionPane. 
 
-
-Things need to be improved in the future:
-1. The controller should be only take model and view as parameters. Appendable should be handled in view portion. 
 		 

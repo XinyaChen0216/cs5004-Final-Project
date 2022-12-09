@@ -1,35 +1,25 @@
-package cs5004.animator;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import controller.AnimationController;
 import model.ModelImplementation;
 import model.ModelInterface;
 import util.AnimationBuilder;
 import util.AnimationReader;
-import view.Svgview;
+import view.SVGView;
 import view.TextBasedView;
 import view.ViewInterface;
 import view.VisualButton;
 import view.VisualView;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-
-/**
- * This represents a EasyAnimator class. 
- * @author xinyachen
- *
- */
 public final class EasyAnimator {
 
-  /**
-   * This is the main method of the program.
-   * @param args input arguments that users write
-   */
   public static void main(String[] args) {
 
     ModelInterface model = null;
@@ -57,15 +47,15 @@ public final class EasyAnimator {
                 JOptionPane.ERROR_MESSAGE);
           }
         } else if (args[i].equals("-out")) {
-          if (args[i + 1].endsWith("txt") || args[i + 1].endsWith("svg")) {
-            try {
-              outputFile = args[i + 1];
-              appendable = new FileWriter(outputFile);
-            } catch (Exception e) {
-              JOptionPane.showMessageDialog(frame, "Output source is not found!", "Error",
+            if(args[i+1].endsWith("txt") || args[i+1].endsWith("svg")){
+              try{
+                outputFile = args[i + 1];
+                appendable = new FileWriter(outputFile);
+              } catch (Exception e) {
+                  JOptionPane.showMessageDialog(frame, "Output source is not found!", "Error",
                   JOptionPane.WARNING_MESSAGE);
-            }
-          } 
+              }
+            } 
         } else if (args[i].equals("-view")) {
           try {
             viewType = args[i + 1];
@@ -83,14 +73,14 @@ public final class EasyAnimator {
         }
       }
     }
-
+   
     if (viewType.equals("text")) {
       view = new TextBasedView();
     } else if (viewType.equals("visual")) {
       view = new VisualView(tempo);
     } else if (viewType.equals("svg")) {
-      view = new Svgview(model.getX(), model.getY(), model.getWidth(), model.getHeight());
-    } else if (viewType.equals("visualButton")) {
+      view = new SVGView(model.getX(), model.getY(), model.getWidth(), model.getHeight());
+    } else if(viewType.equals("visualButton")){
       view = new VisualButton(tempo);
     }
     new AnimationController(model, view, appendable).run();
