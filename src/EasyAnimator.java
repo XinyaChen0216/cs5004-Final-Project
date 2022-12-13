@@ -1,4 +1,4 @@
-package cs5004.animator;
+// package cs5004.animator;
 
 import controller.AnimationController;
 import model.ModelImplementation;
@@ -85,13 +85,13 @@ public final class EasyAnimator {
     }
 
     if (viewType.equals("text")) {
-      view = new TextBasedView();
+      view = new TextBasedView(model.getShapeList());
     } else if (viewType.equals("visual")) {
-      view = new VisualView(tempo);
+      view = new VisualView(model.getShapeList(), tempo);
     } else if (viewType.equals("svg")) {
-      view = new Svgview(model.getX(), model.getY(), model.getWidth(), model.getHeight());
+      view = new Svgview(model.getShapeList());
     } else if (viewType.equals("visualButton")) {
-      view = new VisualButton(tempo);
+      view = new VisualButton(model.getShapeList(), tempo);
     }
     new AnimationController(model, view, appendable).run();
   }

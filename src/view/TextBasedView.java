@@ -15,15 +15,16 @@ import java.util.List;
  */
 public class TextBasedView implements ViewInterface {
   
+  private List<Shape> shapeList;
   /**
    * A constructor that takes an empty parameter to create text based view object.
    */
-  public TextBasedView() {
-    
+  public TextBasedView(List<Shape> shapeList) {
+    this.shapeList = shapeList;
   }
 
   @Override
-  public String displayView(List<Shape> shapeList) {
+  public String displayView() {
     String s = "";
 
     s += "Shape:\n";

@@ -16,5 +16,5 @@ public interface ViewInterface {
    * @param shapeList a list of shapes that is going to animating
    * @return a String description of the motions
    */
-  String displayView(List<Shape> shapeList);
+  String displayView();
 }

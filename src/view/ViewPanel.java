@@ -11,110 +11,54 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 import model.shape.Shape;
 
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
-import javax.swing.JMenuItem;
-import javax.swing.JPanel;
-import java.awt.FlowLayout;
-import java.awt.Color;
-
 public class ViewPanel extends JPanel implements ActionListener {
 
-  final int PANEL_WIDTH = 600;
-  final int PANEL_HEIGHT = 400;
+  final int PANEL_WIDTH = 800;
+  final int PANEL_HEIGHT = 800;
+  private boolean hasButton;
   private double currTime;
   private int tick;
   private List<Shape> shapeList;
-  Timer timer;
+  private Timer timer;
 
-  private JMenuBar menuBar;
-  private JMenu file;
-  private JMenuItem exit;
-  private JPanel buttonPane;
-  private JButton startButton;
-  private JButton pauseButton;
-  private JButton resumeButton;
-  private JButton restartButton;
-
-
-  public ViewPanel(int tick) {
+  public ViewPanel(int tick, List<Shape> shapeList, boolean hasButton) {
     super(true);
     this.setPreferredSize(new Dimension(PANEL_WIDTH, PANEL_HEIGHT));
+    this.shapeList = shapeList;
+    this.hasButton = hasButton;
     this.currTime = 0;
     this.tick = tick;
-    timer = new Timer(1000 / tick, this);
-
-    this.menuBar = new JMenuBar();
-    //this.setJMenuBar(this.menuBar);
-    this.file = new JMenu("File");
-    this.menuBar.add(this.file);
-    
-    this.exit = new JMenuItem("Exit");
-    this.exit.setName("Quit");
-    this.file.add(this.exit);
-    this.exit.addActionListener(this);
-    
-    this.buttonPane = new JPanel(true);
-    this.buttonPane.setBackground(Color.WHITE);
-    this.buttonPane.setSize(200,200);
-    this.buttonPane.setLocation(100,100);
-    
-    this.buttonPane.setLayout(new FlowLayout());
-    
-    
-    
-    this.startButton = new JButton("Start");
-    this.startButton.setName("start");
-    this.startButton.addActionListener(this);
-
-    this.pauseButton = new JButton("Pause");
-    this.pauseButton.setName("pause");
-    this.pauseButton.addActionListener(this);
-
-    this.resumeButton = new JButton("Resume");
-    this.resumeButton.setName("resume");
-    this.resumeButton.addActionListener(this);
-
-    this.restartButton = new JButton("Restart");
-    this.restartButton.setName("restart");
-    this.restartButton.addActionListener(this);
-    
-    
-    this.buttonPane.add(this.startButton);
-    this.buttonPane.add(this.pauseButton);
-    this.buttonPane.add(this.resumeButton);
-    this.buttonPane.add(this.restartButton);
-    
-    this.add(this.buttonPane);
-    this.add(buttonPane); 
-    
-    this.repaint();
-
-
-    
-   this.setVisible(true);
- 
+    this.timer = new Timer(1000 / tick, this);
   }
 
-  public void displayView(List<Shape> shapeList) {
-    this.shapeList = shapeList;
-    timer.start();
+  public void displayView() {
+    if (!hasButton)
+      this.timer.start();
+  }
+
+  public List<Shape> getShapeList() {
+    return this.shapeList;
+  }
+
+  public Timer getTimer() {
+    return this.timer;
+  }
+
+  public double getCurrTime() {
+    return this.currTime;
+  }
+
+  public void setCurrTime(int time) {
+    this.currTime = time;
   }
 
   @Override
   public void paintComponent(Graphics g) {
     super.paintComponent(g);
     Graphics2D g2D = (Graphics2D) g;
-    
     for (int i = 0; i < this.shapeList.size(); i++) {
       Shape shape = this.shapeList.get(i);
-      
-      // if (shape.getTime().getEndTime() < currTime || shape.getTime().getStartTime()
-      // > currTime) {
-      // continue;
-      // } else {
+
       shape = shape.generateAnimatedShape(currTime);
       float red = (float) shape.getColor().getRed() / 255;
       float green = (float) shape.getColor().getGreen() / 255;
@@ -132,12 +76,11 @@ public class ViewPanel extends JPanel implements ActionListener {
             (int) shape.getXRadius(), (int) shape.getYRadius());
       }
     }
-    this.currTime += this.tick;
   }
 
   @Override
   public void actionPerformed(ActionEvent e) {
+    this.currTime += this.tick;
     repaint();
-
   }
 }

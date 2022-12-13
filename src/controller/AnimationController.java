@@ -33,7 +33,7 @@ public class AnimationController implements AnimationControllerInterface {
   @Override
   public void run() {
     try {
-      this.appendable.append(this.view.displayView(this.model.getShapeList()));
+      this.appendable.append(this.view.displayView());
       if (this.appendable != System.out) {
         ((FileWriter)this.appendable).flush();
         ((FileWriter)this.appendable).close();

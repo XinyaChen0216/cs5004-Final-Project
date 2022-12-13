@@ -15,24 +15,18 @@ public class VisualView extends JFrame implements ViewInterface {
 
   private ViewPanel viewPanel;
 
-  public VisualView(int tempo) {
+  public VisualView(List<Shape> shapeList, int tempo) {
     super("Easy Animation");
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    viewPanel = new ViewPanel(tempo);
+    viewPanel = new ViewPanel(tempo, shapeList, false);
     this.add(viewPanel);
     this.pack();
     this.setVisible(true);
   }
 
   @Override
-  public String displayView(List<Shape> shapeList) {
-    this.viewPanel.displayView(shapeList);
+  public String displayView() {
+    this.viewPanel.displayView();
     return "";
   }
-
-  // @Override
-  // public String getViewType() {
-  //   return "visual";
-  // }
-
 }

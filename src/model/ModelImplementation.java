@@ -162,6 +162,7 @@ public class ModelImplementation implements ModelInterface {
           new ChangeColor(currShape, t1, t2, AnimationType.ChangeColor,
               new Color(r1, g1, b1), new Color(r2, g2, b2));
         }
+        currShape.setEndTime(t2);
       }
       return this;
     }

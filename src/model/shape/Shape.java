@@ -13,55 +13,66 @@ import java.util.List;
  *
  */
 public interface Shape {
-  
+
   /**
    * Get the name of the shape.
    * @return the name of the shape
    */
   String getName();
-  
+
   /**
    * Get the type of the shape.
    * @return the type of the shape
    */
   String getType();
-  
+
   /**
    * Get the color of the shape.
    * @return the color of the shape.
    */
   Color getColor();
-  
+
   /**
    * Get the position of the shape.
    * @return the position of the shape.
    */
   Point2D getPosition();
-  
+
   /**
    * Get the XRadius of oval or the width of rectangle.
    * @return the XRadius of oval or the width of rectangle.
    */
   double getXRadius();
-  
+
   /**
-   *Get the YRadius of oval or the height of rectangle.
-   *@return the YRadius of oval or the height of rectangle.
+   * Get the YRadius of oval or the height of rectangle.
+   * @return the YRadius of oval or the height of rectangle.
    */
   double getYRadius();
-  
+
   /**
    * Get the time of appearing and disappear the shape.
    * @return the time of appearing and disappear the shape
    */
   Time getTime();
-  
+
+  /**
+   * Set the time of disappear the shape.
+   * @param time updated disappear time
+   */
+  void setEndTime(int time);
+
+  /**
+   * Reset shape back to origin.
+   */
+  void restartShape();
+
   /**
    * Get the list of this shape object's animation.
    * @return the list of this shape object's animation.
    */
   List<AnimationInterface> getAnimationList();
-  
+
   /**
    * Generate a new shape object at the current time.
    * @param currTime current time
@@ -69,4 +80,3 @@ public interface Shape {
    */
   Shape generateAnimatedShape(double currTime);
 }
-

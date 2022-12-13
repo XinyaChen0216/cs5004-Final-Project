@@ -27,6 +27,10 @@ public abstract class ShapeAbstract implements Shape {
   protected double xRadius;
   protected double yRadius;
   protected Color color;
+  protected Point2D originCenter = null;
+  protected double originXRadius = -1;
+  protected double originYRadius = -1;
+  protected Color originColor = null;
   protected Time time;
   protected List<AnimationInterface> animationList;
 
@@ -61,6 +65,10 @@ public abstract class ShapeAbstract implements Shape {
     this.color = new Color(red, green, blue);
     this.time = new Time(startTime, endTime);
     this.animationList = new ArrayList<>();
+    this.originCenter = this.originCenter == null ? this.center : this.originCenter;
+    this.originColor = this.originColor == null ? this.color : this.originColor;
+    this.originXRadius = this.originXRadius == -1 ? this.xRadius : this.originXRadius;
+    this.originYRadius = this.originYRadius == -1 ? this.yRadius : this.originYRadius;
   }
 
   public String getName() {
@@ -87,8 +95,21 @@ public abstract class ShapeAbstract implements Shape {
     return this.time;
   }
 
+  public void setEndTime(int endTime) {
+    this.time.setEndTime(endTime);
+  }
+
   public List<AnimationInterface> getAnimationList() {
     return this.animationList;
+  }
+
+  public void restartShape() {
+    if (this.originCenter != null && this.originColor != null && this.originXRadius != -1 && this.originYRadius != -1) {
+      this.center = this.originCenter;
+      this.color = this.originColor;
+      this.xRadius = this.originXRadius;
+      this.yRadius = this.originYRadius;
+    }
   }
 
   /**
@@ -110,7 +131,7 @@ public abstract class ShapeAbstract implements Shape {
         if (a.getAnimationTime().getStartTime() == b.getAnimationTime().getStartTime()) {
           return a.getAnimationTime().getEndTime() - b.getAnimationTime().getEndTime();
         } else {
-          return a.getAnimationTime().getStartTime() 
+          return a.getAnimationTime().getStartTime()
               - b.getAnimationTime().getStartTime();
         }
       }
@@ -181,11 +202,6 @@ public abstract class ShapeAbstract implements Shape {
         }
       }
     }
-    System.out.println(currTime);
-    System.out.println(this.name);
-    System.out.println(updatedX);
-    System.out.println(updatedY);
-    System.out.println();
     this.center = new Point2D(updatedX, updatedY);
     this.xRadius = updatedWidth;
     this.yRadius = updatedHeight;

@@ -12,12 +12,28 @@ import model.shape.Shape;
  */
 public interface ModelInterface {
 
+  /**
+   * Get canvas x location.
+   * @return x coordinate
+   */
   int getX();
 
+  /**
+   * Get canvas y location.
+   * @return y coordinate
+   */
   int getY();
 
+  /**
+   * Get canvas width.
+   * @return  width of canvas
+   */
   int getWidth();
 
+  /**
+   * Get canvas height.
+   * @return height of canvas
+   */
   int getHeight();
 
   /**

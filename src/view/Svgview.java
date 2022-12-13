@@ -18,29 +18,22 @@ import java.util.List;
  *
  */
 public class Svgview implements ViewInterface {
-
-  private int x;
-  private int y;
-  private int width;
-  private int height;
+  private List<Shape> shapeList;
+  private int x = 0;
+  private int y = 0;
+  private int width = 800;
+  private int height = 800;
 
   /**
    * A constructor that takes in the canvas boundary information to create
    * a SVG view object.
-   * @param x the x-axis of the original of canvas
-   * @param y the y-axis of the oirginal of canvas
-   * @param width the width of the canvas
-   * @param height the height of the canvas
    */
-  public Svgview(int x, int y, int width, int height) {
-    this.x = x;
-    this.y = y;
-    this.width = width;
-    this.height = height;
+  public Svgview(List<Shape> shapeList) {
+    this.shapeList = shapeList;
   }
 
   @Override
-  public String displayView(List<Shape> shapeList) {
+  public String displayView() {
     String svg = "";
     svg += "<svg version=\"1.1\"\n"
         + "xmlns=\"http://www.w3.org/2000/svg\">\n"
@@ -174,6 +167,7 @@ public class Svgview implements ViewInterface {
         svg += "</ellipse>\n";
       }
     }
+    svg += "</svg>\n";
     svg += "</svg>";
     return svg;
   }
